@@ -131,7 +131,7 @@ allprojects {
 }
 
 dependencies {
-	compile('com.github.ihsanbal:LoggingInterceptor:2.0.3') {
+	compile('com.github.lh994749769:LoggingInterceptor:2.0.4') {
         	exclude group: 'org.json', module: 'json'
     	}
 }
