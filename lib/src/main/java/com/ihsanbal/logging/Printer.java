@@ -55,6 +55,7 @@ class Printer {
             I.log(builder.getType(), tag, REQUEST_UP_LINE);
         logLines(builder.getType(), tag, new String[]{URL_TAG + request.url()}, builder.getLogger(), false);
         logLines(builder.getType(), tag, getRequest(request, builder.getLevel()), builder.getLogger(), true);
+        logLines(builder.getType(), tag,new String[]{"content-type: " + request.body().contentType().subtype()}, builder.getLogger(), true);
         if (builder.getLevel() == Level.BASIC || builder.getLevel() == Level.BODY) {
             logLines(builder.getType(), tag, requestBody.split(LINE_SEPARATOR), builder.getLogger(), true);
         }

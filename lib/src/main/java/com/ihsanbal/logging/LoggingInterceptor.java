@@ -84,7 +84,7 @@ public class LoggingInterceptor implements Interceptor {
             final String bodyString = Printer.getJsonString(responseBody.string());
             final String url = response.request().url().toString();
             Printer.printJsonResponse(builder, chainMs, isSuccessful, code, header, bodyString,
-                segmentList, message, url);
+                    segmentList, message, url);
             body = ResponseBody.create(contentType, bodyString);
         } else {
             Printer.printFileResponse(builder, chainMs, isSuccessful, code, header, segmentList, message);
@@ -96,9 +96,10 @@ public class LoggingInterceptor implements Interceptor {
 
     private boolean isNotFileRequest(final String subtype) {
         return subtype != null && (subtype.contains("json")
-            || subtype.contains("xml")
-            || subtype.contains("plain")
-            || subtype.contains("html"));
+                || subtype.contains("xml")
+                || subtype.contains("plain")
+                || subtype.contains("html")
+                || subtype.contains("form-urlencoded"));
     }
 
     @SuppressWarnings({"unused", "SameParameterValue"})
